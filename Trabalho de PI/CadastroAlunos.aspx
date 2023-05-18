@@ -1,6 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroAlunos.aspx.cs" Inherits="Trabalho_de_PI.CadastroAlunos" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+ 
+</script>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -23,23 +28,25 @@
             <asp:Label ID="lblImg" runat="server" Text="Selecione uma Foto:"></asp:Label>
            
             <asp:FileUpload ID="foto" runat="server"  accept="image/*" onChange="previewImagem()" Enabled="True" />
-                
-        
-            <asp:Image ID="Image1" runat="server" AlternateText="Pré visualização" Height="4cm" ImageAlign="Top" Width="3cm"/>
+            
+            <asp:Image ID="Image1" runat="server" AlternateText="Pré visualização" Height="4cm" ImageAlign="Top" Width="3cm" />
         
             <br />
             <br />
-            <asp:Button ID="btnSelecionar" runat="server" Text="Selecionar" OnClick="btnSelecionar_Click" />
+            <asp:Button ID="btnSeleciona" runat="server" OnClick="btnSeleciona_Click" Text="Selecionar" />
             <br />
             <br />
             <asp:Label ID="lblDp" runat="server" Text="Dados Pessoais" CssClass="dp"></asp:Label>
+          
+            <hr />
+            <br />
           
             <asp:Label ID="lblNome" runat="server" Text="Nome:"></asp:Label>
             <asp:TextBox ID="txtNome" runat="server"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="lblRg" runat="server" Text="RG:"></asp:Label>
-            <asp:TextBox ID="txtRg" runat="server" pattern="\d{2}-?\d{3}-?\d{3}-?\d{1}" placeholder="00.000.000-0" ></asp:TextBox>
+            <asp:TextBox ID="txtRg" runat="server" ></asp:TextBox>
 &nbsp;
             <asp:Label ID="lblNasc" runat="server" Text="Nasc.:"></asp:Label>
             <asp:TextBox ID="txtNasc" runat="server" Type="date" OnTextChanged="txtNasc_TextChanged"></asp:TextBox>
@@ -119,11 +126,9 @@
             <br />
             <br />
             <asp:Label ID="lblModalidade" runat="server" Text="Modalidade: "></asp:Label>
-            <asp:DropDownList ID="dpdModalidade" runat="server" Font-Names="Segoe UI" ForeColor="Black" font-weight="lighter" OnSelectedIndexChanged="dpdModalidade_SelectedIndexChanged">
-                <asp:ListItem>Presencial</asp:ListItem>
-                <asp:ListItem>SemiPresencial</asp:ListItem>
-                <asp:ListItem>A Distancia</asp:ListItem>
+            <asp:DropDownList ID="ddlModalidade" runat="server" Font-Names="Segoe UI" ForeColor="Black" font-weight="lighter" OnSelectedIndexChanged="dpdModalidade_SelectedIndexChanged" DataSourceID="app" DataTextField="nome" DataValueField="cod">
             </asp:DropDownList>
+            <asp:SqlDataSource ID="app" runat="server" ConnectionString="<%$ ConnectionStrings:AAP-ITAQUAPASSE1ConnectionString %>" ProviderName="<%$ ConnectionStrings:AAP-ITAQUAPASSE1ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [modalidade]"></asp:SqlDataSource>
             <br />
             <br />
             <asp:Label ID="lblHoraAula" runat="server" Text="Horario de aula: "></asp:Label>
@@ -135,13 +140,14 @@
             <asp:Label ID="lblhora" runat="server" Text="hs."></asp:Label>
             &nbsp;
                 
-            <asp:Button ID="btnEnviar" runat="server" CssClass="ev" Text="Enviar" />
+            <asp:Button ID="btnEnviar" runat="server" CssClass="ev" Text="Enviar" OnClick="btnEnviar_Click" />
             <br />
             <br />
             <br />
             <br />
               
         </fieldset>
+        <asp:Label ID="lblMensagem" runat="server"></asp:Label>
     </form>
 </body>
 </html>

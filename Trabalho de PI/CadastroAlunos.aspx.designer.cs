@@ -51,13 +51,13 @@ namespace Trabalho_de_PI
         protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
-        /// Controle btnSelecionar.
+        /// Controle btnSeleciona.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelecionar;
+        protected global::System.Web.UI.WebControls.Button btnSeleciona;
 
         /// <summary>
         /// Controle lblDp.
@@ -483,13 +483,22 @@ namespace Trabalho_de_PI
         protected global::System.Web.UI.WebControls.Label lblModalidade;
 
         /// <summary>
-        /// Controle dpdModalidade.
+        /// Controle ddlModalidade.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dpdModalidade;
+        protected global::System.Web.UI.WebControls.DropDownList ddlModalidade;
+
+        /// <summary>
+        /// Controle app.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource app;
 
         /// <summary>
         /// Controle lblHoraAula.
@@ -544,5 +553,14 @@ namespace Trabalho_de_PI
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEnviar;
+
+        /// <summary>
+        /// Controle lblMensagem.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensagem;
     }
 }
