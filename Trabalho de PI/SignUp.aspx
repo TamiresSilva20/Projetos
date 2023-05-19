@@ -12,7 +12,8 @@
      <div class="container">
         <form id="form1" runat="server" class="form">
             <div>
-            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" Height="868px" OnCreatedUser="CreateUserWizard1_CreatedUser" Width="376px" InvalidPasswordErrorMessage="Tamanho mínimo da senha: {0}. ">
+                <asp:Label ID="lblMensagem" runat="server"></asp:Label>
+            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" Height="868px" OnCreatedUser="CreateUserWizard1_CreatedUser" Width="376px"  >
                 <CreateUserButtonStyle CssClass="bnt"  />
                    
                 <WizardSteps>
@@ -36,6 +37,28 @@
                                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="O Nome do Usuário é necessário." ToolTip="O Nome do Usuário é necessário." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
+                                            <tr>
+                                        <td align="left">
+                                            <asp:Label ID="lblRg" runat="server" AssociatedControlID="rg" CssClass="formControlLabel">RG: </asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtRg" runat="server" CssClass="formControlTextBox"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="lblRgRequired" runat="server" ControlToValidate="rg" ErrorMessage="O Rg é necessário." ToolTip="O Rg é necessário." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                          <tr>
+                                        <td align="left">
+                                            <asp:Label ID="lblDt" runat="server" AssociatedControlID="Dt" CssClass="formControlLabel">Dt.Nascimento: </asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtDt" runat="server" CssClass="formControlTextBox"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="lblDtRequired" runat="server" ControlToValidate="Dt" ErrorMessage="A data de nascimento é necessária." ToolTip="A data de nascimento é necessária." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
                                 <tr>
                                     <td align="left">
                                         <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="formControlLabel">Email:</asp:Label>
@@ -48,6 +71,8 @@
                                         <asp:TextBox ID="Email" runat="server" CssClass="formControlTextBox"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="O email é necessário." ToolTip="O email é necessário." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                     </td>
+                                      
+                                  
                                     <tr>
                                         <td align="left">
                                             <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" CssClass="formControlLabel">Senha:</asp:Label>
@@ -70,28 +95,7 @@
                                             <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" ErrorMessage="É necessário Confirmar Senha." ToolTip="É necessário Confirmar Senha." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td align="left">
-                                            <asp:Label ID="QuestionLabel" runat="server" AssociatedControlID="Question" CssClass="formControlLabel">Pergunta de Segurança:</asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:TextBox ID="Question" runat="server" CssClass="formControlTextBox"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question" ErrorMessage="A pergunta de segurança é necessária." ToolTip="A pergunta de segurança é necessária." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td align="left">
-                                            <asp:Label ID="AnswerLabel" runat="server" AssociatedControlID="Answer" CssClass="formControlLabel">Resposta de Segurança:</asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:TextBox ID="Answer" runat="server" CssClass="formControlTextBox"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="A resposta de segurança é necessária." ToolTip="A resposta de segurança é necessária." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                        </td>
-                                    </tr>
+                                 
                                     <tr>
                                         <td align="center">
                                             <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" CssClass="formControlLabel" Display="Dynamic" ErrorMessage="A Senha e a Senha de Confirmação devem coincidir." ValidationGroup="CreateUserWizard1"></asp:CompareValidator>

@@ -9,20 +9,21 @@ using System.Data.OleDb;
 
 namespace Trabalho_de_PI
 {
-    public partial class SignUp : System.Web.UI.Page
+    public partial class SignUp2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
+        protected void btnCriar_Click(object sender, EventArgs e)
         {
+
             OleDbConnection conn = new OleDbConnection();
             OleDbCommand cmd = new OleDbCommand();
             conn.ConnectionString = "Provider=Microsoft.Jet.OleDb.4.0;Data Source=C:\\Users\\tamir\\OneDrive\\Área de Trabalho\\Fatec_1.mdb";
             cmd.Connection = conn;
-            cmd.CommandText = "Select* from login where cd_rg=  ";
+            cmd.CommandText = "Select* from login where cd_rg=  "+ txtRg.Text;
             cmd.CommandType = CommandType.Text;
             conn.Open();
 
@@ -38,7 +39,7 @@ namespace Trabalho_de_PI
                 conn.Close();
 
 
-                cmd.CommandText = "insert into aluno (cd_aluno, nome, endereço, cidade, idUf, idCurso) values (" + txtRA.Text + ", '" + txtNome.Text + "', '" + txtEndereco.Text + "', '" + txtCidade.Text + "', " + ddlUf.SelectedValue + ", " + ddlCurso.SelectedValue + ")";
+                cmd.CommandText = "insert into login (cd_rg, nome, dt_nasc, email, senha,conf_senha) values (" + txtRg.Text + ", '" + txtNome.Text + "', '" + txtDt.Text + "', '" + txtEmail.Text + "', " +txtPassword.Text + ", " + txtConfirmPassword.Text + ")";
                 cmd.CommandType = CommandType.Text;
                 conn.Open();
                 cmd.ExecuteScalar();
@@ -46,7 +47,6 @@ namespace Trabalho_de_PI
             }
             conn.Close();
             conn.Dispose();
-
-        }
+        } 
     }
 }

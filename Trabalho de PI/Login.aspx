@@ -34,6 +34,17 @@
                                                 <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="O Nome do Usuário é obrigatório." ToolTip="O Nome do Usuário é obrigatório." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                                             </td>
                                         </tr>
+                                          <tr>
+                                        <td align="left">
+                                            <asp:Label ID="lblRg" runat="server" AssociatedControlID="rg" CssClass="formControlLabel">RG: </asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtRg" runat="server" CssClass="formControlTextBox"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="lblRgRequired" runat="server" ControlToValidate="rg" ErrorMessage="O Rg é necessário." ToolTip="O Rg é necessário." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
                                         <tr>
                                             <td align="left" class="formControlLabel">
                                                 <asp:Label ID="UserEmailLabel" runat="server" AssociatedControlID="UserEmail">E-mail:</asp:Label>
@@ -96,6 +107,7 @@
                     <TitleTextStyle CssClass="header" />
                 </asp:Login>
                 <br />
+                <asp:Label ID="lblMensagem" runat="server"></asp:Label>
             </div>
         </form>
     </div>
